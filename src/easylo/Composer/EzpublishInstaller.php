@@ -31,6 +31,7 @@ class EzpublishInstaller extends LibraryInstaller
      */
     public function supports($packageType)
     {
+        return 'library' === $packageType;
         return 'ezpublish-extension' === $packageType;
     }
 }

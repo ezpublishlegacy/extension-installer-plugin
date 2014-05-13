@@ -10,7 +10,7 @@ class EzpublishInstallerPlugin implements PluginInterface
 {
     public function activate(Composer $composer, IOInterface $io)
     {
-        $installer = new TemplateInstaller($io, $composer);
+        $installer = new EzpublishInstaller($io, $composer);
         $composer->getInstallationManager()->addInstaller($installer);
     }
 }
