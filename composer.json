@@ -1,12 +1,12 @@
 {
-    "name": "easylo/ezpublish-installer-plugin",
+    "name": "easylo/extension-installer-plugin",
     "type": "composer-plugin",
     "license": "MIT",
     "autoload": {
         "psr-0": {"easylo\\Composer": "src/"}
     },
     "extra": {
-        "class": "easylo\\Composer\\EzpublishInstallerPlugin"
+        "class": "easylo\\Composer\\ExtensionInstallerPlugin"
     },
     "require": {
         "composer-plugin-api": "1.0.0"
