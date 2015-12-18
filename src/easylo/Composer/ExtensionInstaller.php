@@ -10,9 +10,8 @@ class ExtensionInstaller extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
-    public function getPackageBasePath(PackageInterface $package)
+    public function getInstallPath(PackageInterface $package)
     {
-        
         $type = $package->getType();
 
         $prettyName = $package->getPrettyName() ;
@@ -35,9 +34,11 @@ class ExtensionInstaller extends LibraryInstaller
                 }
             }
 
-        $this->vendorDir = rtrim($this->composer->getConfig()->get('vendor-dir'), '/');
-        
-        return $this->vendorDir .'/'. $prettyName ;
+       $this->initializeVendorDir();
+       $basePath = ($this->vendorDir ? $this->vendorDir.'/' : '') . $package->getPrettyName();
+
+       $targetDir = $package->getTargetDir();
+       return $basePath . ($targetDir ? '/'.$targetDir : '');
         
     }
 
